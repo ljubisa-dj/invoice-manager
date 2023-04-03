@@ -60,7 +60,7 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "guard-livereload", "~> 2.5", require: false
-  gem 'rack-livereload'
+  gem "rack-livereload"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
