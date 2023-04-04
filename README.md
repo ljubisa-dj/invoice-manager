@@ -6,6 +6,7 @@ This is a demo Ruby on Rails invoice management application.
 
 - Ruby version 3.1.1
 - Rails version 7.0.4.3
+- PostgreSQL version 14.2
 
 ## Installation
 
