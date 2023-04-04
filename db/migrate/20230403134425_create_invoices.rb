@@ -1,10 +1,10 @@
 class CreateInvoices < ActiveRecord::Migration[7.0]
   def change
     create_table :invoices do |t|
-      t.string :invoice_name
-      t.decimal :amount_owed
-      t.date :due_date
-      t.string :status
+      t.string :title
+      t.decimal :amount
+      t.date :due
+      t.boolean :is_paid, default: false
 
       t.timestamps
     end
