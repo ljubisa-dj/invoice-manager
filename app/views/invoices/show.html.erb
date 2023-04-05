@@ -1,3 +1,13 @@
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
 <h1>Invoice Details</h1>
 <table>
   <thead>
@@ -14,4 +24,5 @@
     <td><%= @invoice.is_paid ? 'Yes' : 'No' %></td>
   </tr>
 </table>
+<%= link_to "Edit", edit_invoice_path(@invoice) %>
 <%= button_to "Back", root_path, method: :get %>

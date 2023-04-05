@@ -17,6 +17,19 @@ class InvoicesController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @invoice = Invoice.find(params[:id])
+  end
+
+  def update
+    @invoice = Invoice.find(params[:id])
+    if @invoice.update(invoice_params)
+      redirect_to invoice_path(@invoice)
+    else
+      render :edit
+    end
+  end
+
   def show
     @invoice = Invoice.find(params[:id])
   end
