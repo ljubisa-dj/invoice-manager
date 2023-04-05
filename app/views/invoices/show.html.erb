@@ -1,0 +1,17 @@
+<h1>Invoice Details</h1>
+<table>
+  <thead>
+    <th>Title</th>
+    <th>Amount</th>
+    <th>Due</th>
+    <th>Is Paid</th>
+    <th>Action</th>
+  </thead>
+  <tr>
+    <td><%= @invoice.title %></td>
+    <td><%= @invoice.amount %></td>
+    <td><%= @invoice.due %></td>
+    <td><%= @invoice.is_paid ? 'Yes' : 'No' %></td>
+  </tr>
+</table>
+<%= button_to "Back", root_path, method: :get %>

@@ -4,11 +4,21 @@ class InvoicesController < ApplicationController
 
     if @invoice.save
       flash[:notice] = "Invoice created successfully."
-      redirect_to invoices_path
+      redirect_to invoice_path(@invoice)
     else
       flash.now[:alert] = "Unable to create invoice."
       render :new
     end
+  end
+
+  def destroy
+    @invoice = Invoice.find(params[:id])
+    @invoice.destroy
+    redirect_to root_path
+  end
+
+  def show
+    @invoice = Invoice.find(params[:id])
   end
 
   private

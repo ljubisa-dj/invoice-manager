@@ -1,1 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Amount</th>
+      <th>Due</th>
+      <th>Is Paid</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @invoices.each do |invoice| %>
+      <tr>
+        <td><%= invoice.title %></td>
+        <td><%= invoice.amount %></td>
+        <td><%= invoice.due %></td>
+        <td><%= invoice.is_paid %></td>
+        <td><%= button_to 'Delete', invoice_path(invoice), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <%= button_to "New Invoice", new_invoice_path, method: :get %>
