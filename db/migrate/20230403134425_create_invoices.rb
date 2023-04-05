@@ -4,7 +4,7 @@ class CreateInvoices < ActiveRecord::Migration[7.0]
       t.string :title
       t.decimal :amount
       t.date :due
-      t.boolean :is_paid, default: false
+      t.boolean :is_paid, default: false, :null => false
 
       t.timestamps
     end
