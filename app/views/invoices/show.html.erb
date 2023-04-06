@@ -14,14 +14,16 @@
     <th>Title</th>
     <th>Amount</th>
     <th>Due</th>
-    <th>Is Paid</th>
-    <th>Action</th>
+    <th>Status</th>
+    <th>Description</th>
+    <th></th>
   </thead>
   <tr>
     <td><%= @invoice.title %></td>
     <td><%= @invoice.amount %></td>
     <td><%= @invoice.due %></td>
-    <td><%= @invoice.is_paid ? 'Yes' : 'No' %></td>
+    <td><%= @invoice.is_paid ? 'Paid' : 'Pending' %></td>
+    <td><%= @invoice.description %></td>
   </tr>
 </table>
 <%= link_to "Edit", edit_invoice_path(@invoice) %>

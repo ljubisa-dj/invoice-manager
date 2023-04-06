@@ -11,6 +11,10 @@
     <%= form.label :is_paid, name: 'invoice[is_paid]' %>
     <%= form.check_box :is_paid , checked: false, name: 'invoice[is_paid]' %>
   </div>
+  <div class="form-field">
+    <%= form.label :description, name: 'invoice[description]' %>
+    <%= form.text_field :description, name: 'invoice[description]' %>
+  </div>
   <%= form.submit 'Create Invoice' %>
 <% end %>
 <%= button_to "Back", root_path, method: :get %>

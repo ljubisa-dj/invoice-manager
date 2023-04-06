@@ -4,8 +4,8 @@
       <th>Title</th>
       <th>Amount</th>
       <th>Due</th>
-      <th>Is Paid</th>
-      <th>Action</th>
+      <th>Status</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -14,7 +14,7 @@
         <td><%= invoice.title %></td>
         <td><%= invoice.amount %></td>
         <td><%= invoice.due %></td>
-        <td><%= invoice.is_paid %></td>
+        <td><%= invoice.is_paid ? 'paid' : 'pending' %></td>
         <td><%= link_to 'Show',  invoice_path(invoice) %></td>
         <td><%= button_to 'Delete', invoice_path(invoice), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }  %></td>
       </tr>
