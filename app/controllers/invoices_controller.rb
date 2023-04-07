@@ -1,14 +1,20 @@
 class InvoicesController < ApplicationController
   def create
-    @invoice = Invoice.new(invoice_params)
+    @debtor = Debtor.new(debtor_params)
+    @debtors = Debtor.all
+    @invoice = @debtor.invoices.build(invoice_params)
 
-    if @invoice.save
-      flash[:notice] = "Invoice created successfully."
-      redirect_to invoice_path(@invoice)
+    if @debtor.save
+      redirect_to @invoice, notice: "Invoice was successfully created."
     else
-      flash.now[:alert] = "Unable to create invoice."
       render :new
     end
+  end
+
+  def new
+    @invoice = Invoice.new
+    @debtor = Debtor.new
+    @debtors = Debtor.all
   end
 
   def destroy
@@ -38,5 +44,9 @@ class InvoicesController < ApplicationController
 
   def invoice_params
     params.require(:invoice).permit(:title, :amount, :is_paid, :description)
+  end
+
+  def debtor_params
+    params.require(:debtor).permit(:name, :street, :city, :zip_code, :country)
   end
 end

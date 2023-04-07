@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_06_074604) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_06_114004) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,10 +28,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_06_074604) do
     t.string "title"
     t.decimal "amount"
     t.date "due"
-    t.boolean "is_paid", default: false
+    t.boolean "is_paid", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
+    t.bigint "debtor_id", null: false
+    t.index ["debtor_id"], name: "index_invoices_on_debtor_id"
   end
 
+  add_foreign_key "invoices", "debtors"
 end
