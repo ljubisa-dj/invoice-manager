@@ -13,43 +13,30 @@
   </div>
   <div class="form-field">
     <%= form.label :debtor_select, "Select Debtor", name: 'debtor_select' %>
-    <%= form.select :debtor_select, options_for_select(@debtors.map{ |d| [d.name, d.id] } << ['Custom', 'custom']), {}, name: 'debtor_select', id: 'debtor-select' %>
+    <%= form.select :debtor_select, options_for_select(@debtors.map{ |debtor| [debtor.name, debtor.id] } << ['Add new', 'custom']), {}, name: 'debtor_select', class: 'debtor-select' %>
   </div>
-  <div id="debtor-fields">
-    <div class="form-field debtor-fields">
+  <div class="debtor-fields">
+    <div class="form-field">
       <%= form.label :debtor_name,"Debtor name", name: 'debtor[name]' %>
       <%= form.text_field :name, name: 'debtor[name]' %>
     </div>
-    <div class="form-field debtor-fields">
+    <div class="form-field">
       <%= form.label :debtor_street,"Street address", name: 'debtor[street]' %>
       <%= form.text_field :street, name: 'debtor[street]' %>
     </div>
-    <div class="form-field debtor-fields">
+    <div class="form-field">
       <%= form.label :debtor_city,"City", name: 'debtor[city]' %>
       <%= form.text_field :city, name: 'debtor[city]' %>
     </div>
-    <div class="form-field debtor-fields">
+    <div class="form-field">
       <%= form.label :debtor_zip_code, "Postal code", name: 'debtor[zip_code]' %>
       <%= form.number_field :zip_code, name: 'debtor[zip_code]' %>
     </div>
-    <div class="form-field debtor-fields">
+    <div class="form-field">
       <%= form.label :debtor_country,"Country", name: 'debtor[country]' %>
       <%= form.text_field :country, name: 'debtor[country]' %>
     </div>
   </div>
   <%= form.submit 'Create Invoice' %>
 <% end %>
-<script>
-  var debtorFields = document.getElementById("debtor-fields");
-  var debtorSelect = document.getElementById("debtor-select");
-
-  debtorFields.style.display = "none";
-
-  debtorSelect.addEventListener("change", function() {
-    if (debtorSelect.value === "custom") {
-      debtorFields.style.display = "block";
-    } else {
-      debtorFields.style.display = "none";
-    }
-  });
-</script>
+<%= javascript_include_tag 'invoice-form' %>
